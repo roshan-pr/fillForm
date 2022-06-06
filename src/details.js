@@ -42,7 +42,7 @@ const details = function () {
       action: (name) => personDetails.addName(name)
     },
     {
-      msg: 'Please enter your DOB :',
+      msg: 'Please enter your DOB (yyyy-mm-dd):',
       action: (dob) => personDetails.addDOB(dob)
     },
     {

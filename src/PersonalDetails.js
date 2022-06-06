@@ -15,12 +15,12 @@ class PersonalDetails {
 
   addDOB(dob) {
     this.#dob = dob;
-    return true;
+    return isValidDOB(dob);
   }
 
   addHobbies(hobbies) {
     this.#hobbies = hobbies.split(',');
-    return true;
+    return hasHobbies(this.#hobbies);
   }
 
   writeInto(fileName, writeFile) {
@@ -38,5 +38,12 @@ class PersonalDetails {
 }
 
 const isValidName = (name) => name.length >= 5;
+
+const isValidDOB = (dob) => {
+  const [year, month, day] = dob.split('-');
+  return [year, month, day].every((number) => isFinite(number));
+};
+
+const hasHobbies = (hobbies) => hobbies.every((hobby) => hobby.length > 0);
 
 exports.PersonalDetails = PersonalDetails;
