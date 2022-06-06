@@ -1,42 +1,45 @@
-class Details {
+process.stdin.setEncoding('utf8');
+
+class PersonalDetails {
+  #name;
   constructor() {
-    this.info = [];
+    this.#name = '';
   }
 
-  addInfo(detail) {
-    this.info.push(detail);
+  addName(name) {
+    this.#name = name;
+    return true;
   }
 
-  print() {
-    console.log(this.info);
+  toString() {
+    return `${this.#name}`
   }
 }
 
-const readLines = (personDetails) => {
-  let messages = ['Name :', 'Dob :', 'Hobbies :'];
+const readLines = (personDetails, messages) => {
   let messageIndex = 0;
-  console.log(messages[messageIndex]);
+  console.log(messages[messageIndex].msg);
 
-  process.stdin.setEncoding('utf8');
   process.stdin.on('data', (detail) => {
-    if (messageIndex >= messages.length) {
-      personDetails.print();
-      process.exit(0);
+    if (messages[messageIndex].action(detail)) {
+      console.log('Added ', personDetails + '');
+      messageIndex++;
+    } else {
+      console.log('Wrong input');
     }
-    messageIndex++;
-    console.log(messages[messageIndex]);
-    personDetails.addInfo(detail);
   });
 
   process.stdin.on('end', () => {
-
+    console.log(Thanks);
   })
 };
 
 const details = function () {
+  const personDetails = new PersonalDetails();
 
-  const personDetails = new Details();
-  readLines(personDetails);
+  let messages = [
+    { msg: 'Please enter your name :', action: (name) => personDetails.addName(name) }];
+  readLines(personDetails, messages);
 };
 
 details();
