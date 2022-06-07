@@ -1,7 +1,8 @@
 **TODO**
 
   - [ ] Refactor the structure of PersonalDetails.
-    - [ ] Let the method ask questions and get details.
+    - [ ] Rename PersonalDetails to Form.
+  - [ ] Extract entity called Queries, having questions to ask and get details.
 
 
 
