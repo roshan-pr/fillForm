@@ -1,7 +1,7 @@
 const fs = require('fs');
 process.stdin.setEncoding('utf8');
 
-const { PersonalDetails } = require("./PersonalDetails");
+const { PersonalDetails } = require("./Form.js");
 
 const readLine = (messages) => {
   let messageIndex = 0;
