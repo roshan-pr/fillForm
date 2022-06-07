@@ -1,6 +1,5 @@
 **TODO**
 
-  - [ ] Extract the reading user input function to a file.
 
   - [ ] Refactor the structure of PersonalDetails.
     - [x] Rename PersonalDetails to Form.
@@ -14,6 +13,7 @@
 
 **Done**
 
+- [x] Extract the reading user input function to a file.
 - [x] Validate phone number - Not less than 10.
 - [x] Validate dob - Format should be followed.
 - [x] Validate hobbies - Should not be empty.
