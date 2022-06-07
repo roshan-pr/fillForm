@@ -2,59 +2,67 @@ const fs = require('fs');
 process.stdin.setEncoding('utf8');
 
 const { Form } = require("./Form.js");
+const { Iterator } = require("./Iterator.js");
 
-const readLine = (messages) => {
-  let messageIndex = 0;
-  return (chunk) => {
-    const detail = chunk.split('\n')[0];
-    if (messages[messageIndex].action(detail)) {
-      messageIndex++;
-      if (messageIndex >= messages.length) {
-        process.stdin.emit('end');
-        process.exit(0);
-      }
-      console.log(messages[messageIndex].msg);
-    } else {
-      console.log('Wrong input');
+const handleEvent = (userInput, queryIterator) => {
+  const action = queryIterator.current().action;
+
+  if (action(userInput)) {
+    if (!queryIterator.next()) {
+      process.stdin.emit('end');
+      process.exit(0);
     }
-  }
+    askUser(queryIterator.current().query);
+  };
 };
 
-const readLines = (personDetails, messages) => {
-  let messageIndex = 0;
-  console.log(messages[messageIndex].msg);
+const askUser = (query) => console.log(query);
 
-  process.stdin.on('data', readLine(messages));
+const readInput = (form, queryIterator) => {
+  askUser(queryIterator.current().query);
+
+  let input = '';
+  process.stdin.on('data', (chunk) => {
+    input += chunk;
+    const responses = input.split('\n');
+
+    responses.slice(0, -1).forEach((userInput) =>
+      handleEvent(userInput, queryIterator));
+
+    input = responses.slice(-1);
+  });
 
   process.stdin.on('end', () => {
     // personDetails.writeInto('./records.json', fs.writeFileSync)
     console.log('\nThanks');
-    console.log(personDetails + '');
+    console.log(form + '');
   })
 };
 
 const details = function () {
   const form = new Form();
 
-  const messages = [
+  const queries = [
     {
-      msg: 'Please enter your name :',
+      query: 'Please enter your name :',
       action: (name) => form.addName(name)
     },
     {
-      msg: 'Please enter your DOB (yyyy-mm-dd):',
+      query: 'Please enter your DOB (yyyy-mm-dd):',
       action: (dob) => form.addDOB(dob)
     },
     {
-      msg: 'Please enter your Hobbies :',
+      query: 'Please enter your Hobbies :',
       action: (hobbies) => form.addHobbies(hobbies)
     },
     {
-      msg: 'Please enter your Phone Number :',
+      query: 'Please enter your Phone Number :',
       action: (phNumber) => form.addPhNumber(phNumber)
     }
   ];
-  readLines(form, messages);
+
+  const queryIterator = new Iterator(queries);
+  readInput(form, queryIterator);
 };
 
 details();

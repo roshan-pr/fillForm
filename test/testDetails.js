@@ -1,5 +1,5 @@
-const { details } = require('../src/details.js');
+// const { details } = require('../src/details.js');
 
-details();
+// details();
 
 // Add describe()

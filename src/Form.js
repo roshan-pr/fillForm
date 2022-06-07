@@ -40,8 +40,8 @@ class Form {
   }
 
   toString() {
-    return `Name: ${this.#name}\nDOB: ${this.#dob}
-    Hobbies: ${this.#hobbies}\nPhone Number: ${this.#phNumber}`;
+    return `Name: ${this.#name}\nDOB: ${this.#dob}` +
+      `\nHobbies: ${this.#hobbies}\nPhone Number: ${this.#phNumber}`;
   }
 }
 

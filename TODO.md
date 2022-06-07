@@ -1,5 +1,7 @@
 **TODO**
 
+  - [ ] Extract the reading user input function to a file.
+
   - [ ] Refactor the structure of PersonalDetails.
     - [x] Rename PersonalDetails to Form.
   - [ ] Extract entity called Queries, having questions to ask and get details.
