@@ -1,11 +1,13 @@
-class PersonalDetails {
+class Form {
   #name;
   #dob;
   #hobbies;
+  #phNumber;
   constructor() {
     this.#name = '';
     this.#dob = '';
     this.#hobbies = '';
+    this.#phNumber = '';
   }
 
   addName(name) {
@@ -23,6 +25,11 @@ class PersonalDetails {
     return hasHobbies(this.#hobbies);
   }
 
+  addPhNumber(phNumber) {
+    this.#phNumber = phNumber;
+    return isValidPhNumber(phNumber);
+  }
+
   writeInto(fileName, writeFile) {
     const name = this.#name;
     const dob = this.#dob;
@@ -33,7 +40,8 @@ class PersonalDetails {
   }
 
   toString() {
-    return `Name: ${this.#name}\nDOB: ${this.#dob}\nHobbies: ${this.#hobbies}`;
+    return `Name: ${this.#name}\nDOB: ${this.#dob}
+    Hobbies: ${this.#hobbies}\nPhone Number: ${this.#phNumber}`;
   }
 }
 
@@ -46,4 +54,7 @@ const isValidDOB = (dob) => {
 
 const hasHobbies = (hobbies) => hobbies.every((hobby) => hobby.length > 0);
 
-exports.PersonalDetails = PersonalDetails;
+const isValidPhNumber = (phNumber) =>
+  phNumber.length === 10 && isFinite(phNumber);
+
+exports.Form = Form;

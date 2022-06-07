@@ -1,7 +1,7 @@
 const fs = require('fs');
 process.stdin.setEncoding('utf8');
 
-const { PersonalDetails } = require("./Form.js");
+const { Form } = require("./Form.js");
 
 const readLine = (messages) => {
   let messageIndex = 0;
@@ -34,23 +34,27 @@ const readLines = (personDetails, messages) => {
 };
 
 const details = function () {
-  const personDetails = new PersonalDetails();
+  const form = new Form();
 
   const messages = [
     {
       msg: 'Please enter your name :',
-      action: (name) => personDetails.addName(name)
+      action: (name) => form.addName(name)
     },
     {
       msg: 'Please enter your DOB (yyyy-mm-dd):',
-      action: (dob) => personDetails.addDOB(dob)
+      action: (dob) => form.addDOB(dob)
     },
     {
       msg: 'Please enter your Hobbies :',
-      action: (hobbies) => personDetails.addHobbies(hobbies)
+      action: (hobbies) => form.addHobbies(hobbies)
+    },
+    {
+      msg: 'Please enter your Phone Number :',
+      action: (phNumber) => form.addPhNumber(phNumber)
     }
   ];
-  readLines(personDetails, messages);
+  readLines(form, messages);
 };
 
 details();
