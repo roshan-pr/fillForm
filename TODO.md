@@ -7,9 +7,12 @@
 
   - [ ] Display error message, for invalid response.
   - [ ] Write test for main in bash.
+  - [ ] Keep the stdin.destroy out of the function.
+    - [ ] Use in the callback.
 
 ## Done
 
+- [x] Add parser for parsing the hobbies into an array.
 - [x] Inject the dependencies from outside.
 - [x] Add validations for the fields
 - [x] Rename file userInteraction.js to registerResponse.js

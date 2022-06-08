@@ -23,16 +23,23 @@ const writeInto = (content) => {
   console.log('Thanks');
 };
 
+const identity = (arg) => arg;
+
 const isLongEnough = (arg) => arg.length >= 5;
 
 const isFormatted = (arg) => arg.match(/^\d{4}-\d{2}-\d{2}$/);
 
-const isEmpty = (arg) => arg.length === 0;
+const isEmpty = (arg) => arg.length !== 0;
+
+const splitByComma = (arg) => arg.split(',');
 
 const main = function () {
-  const nameField = new Field('name', 'Please enter name', isLongEnough);
-  const dobField = new Field('dob', 'Please enter dob', isFormatted);
-  const hobbiesField = new Field('hobbies', 'Please enter hobbies', isEmpty);
+  const nameField = new Field(
+    'name', 'Please enter name', isLongEnough, identity);
+  const dobField = new Field(
+    'dob', 'Please enter dob', isFormatted, identity);
+  const hobbiesField = new Field(
+    'hobbies', 'Please enter hobbies', isEmpty, splitByComma);
 
   const form = new Form(nameField, dobField, hobbiesField);
   readInput(form, console.log, writeInto);
