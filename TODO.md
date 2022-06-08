@@ -7,11 +7,11 @@
 
   - [ ] Display error message, for invalid response.
   - [ ] Write test for main in bash.
-  - [ ] Keep the stdin.destroy out of the function.
-    - [ ] Use in the callback.
 
 ## Done
 
+- [x] Keep the stdin.destroy out of the function.
+  - [x] Use in the callback.
 - [x] Add parser for parsing the hobbies into an array.
 - [x] Inject the dependencies from outside.
 - [x] Add validations for the fields

@@ -20,7 +20,7 @@ const readInput = (form, logger, callBack) => {
 
 const writeInto = (content) => {
   fs.writeFileSync('./responses.json', JSON.stringify(content), 'utf-8');
-  console.log('Thanks');
+  process.stdin.destroy();
 };
 
 const identity = (arg) => arg;
