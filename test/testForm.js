@@ -23,4 +23,13 @@ describe('Form', () => {
     assert.deepStrictEqual(form.getEntries(), expected);
   });
 
+  it('Is the form is filled or not', () => {
+    const nameField = new Field('name', 'Enter name');
+
+    const form = new Form(nameField);
+    form.fillField('ram');
+
+    assert.ok(form.isFilled());
+  });
+
 });
