@@ -12,16 +12,19 @@ class Form {
   }
 
   fillField(response) {
-    const field = this.#fields[this.#currentField];
+    const field = this.getCurrentField();
     if (!field.isValid(response)) {
       return;
     }
     field.fill(response);
-    this.#currentField++;
+
+    if (field.isFilled()) {
+      this.#currentField++;
+    }
   }
 
   isFilled() {
-    return this.#currentField >= this.#fields.length
+    return this.#currentField >= this.#fields.length;
   }
 
   getEntries() {

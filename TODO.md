@@ -1,7 +1,5 @@
 ## DOING
 
-  - [ ] Add phone number and address fields.
-  - [ ] Validate address - Should not be empty.
 
 ## TODO
 
@@ -10,6 +8,8 @@
 
 ## Done
 
+- [x] Add phone number and address fields.
+- [x] Validate address - Should not be empty.
 - [x] Extract creating function into a function.
 - [x] Keep the stdin.destroy out of the function.
   - [x] Use in the callback.

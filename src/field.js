@@ -25,6 +25,10 @@ class Field {
     return { name: this.#name, response: this.#parser(this.#response) };
   }
 
+  isFilled() {
+    return this.#response !== null;
+  }
+
   isValid(response) {
     return this.#validator(response);
   }
