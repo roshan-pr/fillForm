@@ -3,11 +3,12 @@
 
 ## TODO
 
+  - [ ] Add try catch to the registerResponse.
   - [ ] Display error message, for invalid response.
-  - [ ] Write test for main in bash.
 
 ## Done
 
+- [x] Write test for main in bash.
 - [x] Add phone number and address fields.
 - [x] Validate address - Should not be empty.
 - [x] Extract creating function into a function.

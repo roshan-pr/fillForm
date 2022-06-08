@@ -34,4 +34,19 @@ describe('registerResponse', () => {
     assert.deepStrictEqual(actual, expected);
   });
 
+  it('Should log the Thanks msg if form is filled', () => {
+    const nameField = new Field('name', 'Enter name', identity, identity)
+    const log = [];
+    const logger = (msg) => log.push(msg);
+
+    let actual;
+    const cb = (arg) => actual = arg;
+
+    const form = new Form(nameField);
+    registerResponse(form, 'Ram', logger, cb);
+    const expLog = ['Thanks'];
+    assert.deepStrictEqual(log, expLog);
+    const expOutput = { name: 'Ram' };
+    assert.deepStrictEqual(actual, expOutput);
+  });
 });

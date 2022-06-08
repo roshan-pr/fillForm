@@ -27,6 +27,10 @@ class Form {
     return this.#currentField >= this.#fields.length;
   }
 
+  getPrompt() {
+    return this.getCurrentField().getPrompt();
+  }
+
   getEntries() {
     const responses = {};
     this.#fields.forEach((field) => {

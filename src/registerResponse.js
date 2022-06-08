@@ -5,7 +5,7 @@ const registerResponse = (form, response, logger, callBack) => {
   form.fillField(response);
 
   if (!form.isFilled()) {
-    logger(form.getCurrentField().getPrompt());
+    logger(form.getPrompt());
     return;
   }
 
