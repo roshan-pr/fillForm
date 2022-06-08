@@ -32,4 +32,12 @@ describe('Form', () => {
     assert.ok(form.isFilled());
   });
 
+  it('Should provide the current prompt', () => {
+    const nameField = new Field('name', 'Enter name');
+
+    const form = new Form(nameField);
+
+    assert.strictEqual(form.getPrompt(), 'Enter name');
+  });
+
 });

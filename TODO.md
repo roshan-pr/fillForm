@@ -3,6 +3,8 @@
 
 ## TODO
 
+  - [ ] Add the call back to the form.
+    - [ ] Invoke when form is filled.
   - [ ] Add try catch to the registerResponse.
   - [ ] Display error message, for invalid response.
 

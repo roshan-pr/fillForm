@@ -32,12 +32,11 @@ class Form {
   }
 
   getEntries() {
-    const responses = {};
-    this.#fields.forEach((field) => {
+    return this.#fields.reduce((responses, field) => {
       const { name, response } = field.getEntry();
       responses[name] = response;
-    });
-    return responses;
+      return responses;
+    }, {});
   }
 }
 

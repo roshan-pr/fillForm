@@ -12,7 +12,7 @@ const readInput = (form, logger, callBack) => {
     input += chunk;
     const responses = input.split('\n');
     responses.slice(0, -1).forEach((response) =>
-      registerResponse(form, response, logger, callBack));
+      registerResponse(form, response.trim(), logger, callBack));
     input = responses.slice(-1);
   });
 };
