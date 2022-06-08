@@ -32,6 +32,15 @@ class Field {
   isValid(response) {
     return this.#validator(response);
   }
+
+  isEqual(otherField) {
+    return otherField instanceof Field &&
+      this.#name === otherField.#name &&
+      this.#prompt === otherField.#prompt &&
+      this.#response === otherField.#response &&
+      this.#validator === otherField.#validator &&
+      this.#parser === otherField.#parser;
+  }
 }
 
 module.exports = { Field };
