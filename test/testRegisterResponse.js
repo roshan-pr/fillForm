@@ -5,7 +5,7 @@ const { registerResponse } = require("../src/registerResponse.js");
 
 const identity = arg => arg;
 
-describe('Form', () => {
+describe('registerResponse', () => {
   it('Should log the next prompt', () => {
     const nameField = new Field('name', 'Enter name');
     const dobField = new Field('dob', 'Enter dob');
@@ -15,7 +15,7 @@ describe('Form', () => {
     const log = [];
     const logger = (arg) => log.push(arg);
 
-    const actual = registerResponse(form, 'ram', logger, identity);
+    registerResponse(form, 'ram', logger, identity);
     const expected = ['Enter dob'];
     assert.deepStrictEqual(log, expected);
   });

@@ -10,7 +10,7 @@ const registerResponse = (form, response, logger, callBack) => {
   }
 
   callBack(form.getEntries());
-  console.log('Thanks');
+  logger('Thanks');
 };
 
 module.exports = { registerResponse };

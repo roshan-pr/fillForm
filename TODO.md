@@ -10,6 +10,7 @@
 
 ## Done
 
+- [x] Extract creating function into a function.
 - [x] Keep the stdin.destroy out of the function.
   - [x] Use in the callback.
 - [x] Add parser for parsing the hobbies into an array.
