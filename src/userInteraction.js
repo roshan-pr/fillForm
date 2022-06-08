@@ -1,31 +1,16 @@
 const fs = require("fs");
 const { Form } = require("./form.js");
 
-const display = (message) => console.log(message);
-
-const registerResponse = (form, response) => {
+const registerResponse = (form, response, logger, callBack) => {
   form.fillField(response);
 
   if (!form.isFilled()) {
-    display(form.getCurrentField().getPrompt());
+    logger(form.getCurrentField().getPrompt());
     return;
   }
-  console.log('\nThanks');
-  const content = form.getEntries();
-  fs.writeFileSync('./responses.json', JSON.stringify(content), 'utf-8');
+
+  callBack(form.getEntries());
   process.stdin.destroy();
 };
 
-const readInput = (form) => {
-  display(form.getCurrentField().getPrompt());
-
-  let input = '';
-  process.stdin.on('data', (chunk) => {
-    input += chunk;
-    const responses = input.split('\n');
-    responses.slice(0, -1).forEach((response) => registerResponse(form, response));
-    input = responses.slice(-1);
-  });
-};
-
-module.exports = { readInput };
+module.exports = { registerResponse };

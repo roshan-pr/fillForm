@@ -1,7 +1,8 @@
 **TODO**
 
-  - [ ] Rename file name of Form to form.js.
-  
+  - [ ] Rename file userInteraction.js to registerResponse.js
+  - [ ] Add validations for the fields
+
   - [ ] Add phone number and address fields.
   - [ ] Validate address - Should not be empty.
 
@@ -10,6 +11,7 @@
 
 **Done**
 
+- [x] Rename file name of Form to form.js.
 - [x] Remove Iterator entity and test.
 - [x] Extract entity called fields
   - [x] Have name, prompt and response.
