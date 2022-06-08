@@ -1,7 +1,7 @@
 **TODO**
 
   - [ ] Rename file name of Form to form.js.
-  - [ ] Remove Iterator entity and test.
+  
   - [ ] Add phone number and address fields.
   - [ ] Validate address - Should not be empty.
 
@@ -10,6 +10,7 @@
 
 **Done**
 
+- [x] Remove Iterator entity and test.
 - [x] Extract entity called fields
   - [x] Have name, prompt and response.
 - [ ] Form will manage the field order, in order to  read responses.

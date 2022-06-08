@@ -1,10 +1,9 @@
 const fs = require('fs');
 process.stdin.setEncoding('utf8');
 
-const { Form } = require("./Form.js");
-const { Field } = require("./Field.js");
+const { Form } = require("./form.js");
+const { Field } = require("./field.js");
 const { readInput } = require("./userInteraction.js");
-const { Iterator } = require("./Iterator.js");
 
 const main = function () {
   const nameField = new Field('name', 'Enter name');

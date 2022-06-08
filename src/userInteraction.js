@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { Form } = require("./Form.js");
+const { Form } = require("./form.js");
 
 const display = (message) => console.log(message);
 
