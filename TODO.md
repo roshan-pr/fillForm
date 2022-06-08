@@ -1,9 +1,12 @@
 **TODO**
 
 
-  - [ ] Extract entity called Queries, having questions to ask and get details.
-
-
+  - [ ] Extract entity called fields
+    - [ ] Have name, prompt and response.
+  - [ ] Form will manage the field order, in order to  read responses.
+    - [ ] Form constructs the fields.
+    - [ ] Behavior of getCurrentField and register response.
+  
 
   - [ ] Add phone number and address fields.
   - [ ] Validate address - Should not be empty.
