@@ -1,19 +1,20 @@
 **TODO**
 
-
-  - [ ] Extract entity called fields
-    - [ ] Have name, prompt and response.
-  - [ ] Form will manage the field order, in order to  read responses.
-    - [ ] Form constructs the fields.
-    - [ ] Behavior of getCurrentField and register response.
-  
-
+  - [ ] Rename file name of Form to form.js.
+  - [ ] Remove Iterator entity and test.
   - [ ] Add phone number and address fields.
   - [ ] Validate address - Should not be empty.
+
+  - [ ] Inject the dependencies from outside.
 
 
 **Done**
 
+- [x] Extract entity called fields
+  - [x] Have name, prompt and response.
+- [ ] Form will manage the field order, in order to  read responses.
+  - [x] Form constructs the fields.
+  - [x] Behavior of getCurrentField and fill response to the field.
 - [x] Refactor the structure of PersonalDetails.
   - [x] Rename PersonalDetails to Form.
 - [x] Extract the reading user input function to a file.

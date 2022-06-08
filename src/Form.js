@@ -1,24 +1,33 @@
 class Form {
-  constructor() {
+  #fields;
+  #currentField;
+
+  constructor(...fields) {
+    this.#fields = fields;
+    this.#currentField = 0;
   }
 
-  addField(field, value) {
-    this[field] = value;
+  getCurrentField() {
+    return this.#fields[this.#currentField];
   }
 
-  writeInto(fileName, writeFile) {
-    const name = this.name;
-    const dob = this.dob;
-    const hobbies = this.hobbies;
-    const content = JSON.stringify({ name, dob, hobbies });
-
-    writeFile(fileName, content, 'utf8');
+  fillField(response) {
+    this.#fields[this.#currentField].fill(response);
+    this.#currentField++;
   }
 
-  toString() {
-    return `Name: ${this.name}\nDOB: ${this.dob}` +
-      `\nHobbies: ${this.hobbies}\nPhone Number: ${this.phNumber}`;
+  isFilled() {
+    return this.#currentField >= this.#fields.length
+  }
+
+  getEntries() {
+    const responses = {};
+    this.#fields.forEach((field) => {
+      const { name, response } = field.getEntry();
+      responses[name] = response;
+    });
+    return responses;
   }
 }
 
-exports.Form = Form;
+module.exports = { Form };

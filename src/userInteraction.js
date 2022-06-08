@@ -1,42 +1,31 @@
-const { Form } = require("./Form");
+const fs = require("fs");
+const { Form } = require("./Form.js");
 
 const display = (message) => console.log(message);
 
-const handleAction = (userInput, queryIterator, form) => {
-  const input = queryIterator.current().parser(userInput);
-  const validate = queryIterator.current().validate;
+const registerResponse = (form, response) => {
+  form.fillField(response);
 
-  if (validate(input)) {
-    const field = queryIterator.current().field;
-    form.addField(field, input);
-
-    if (!queryIterator.next()) {
-      process.stdin.emit('end');
-      process.exit(0);
-    }
-    display(queryIterator.current().query);
-  };
+  if (!form.isFilled()) {
+    display(form.getCurrentField().getPrompt());
+    return;
+  }
+  console.log('\nThanks');
+  const content = form.getEntries();
+  fs.writeFileSync('./responses.json', JSON.stringify(content), 'utf-8');
+  process.stdin.destroy();
 };
 
-const readInput = (queryIterator) => {
-  const form = new Form();
-  display(queryIterator.current().query);
+const readInput = (form) => {
+  display(form.getCurrentField().getPrompt());
 
   let input = '';
   process.stdin.on('data', (chunk) => {
     input += chunk;
     const responses = input.split('\n');
-
-    responses.slice(0, -1).forEach((userInput) => handleAction(userInput, queryIterator, form));
-
+    responses.slice(0, -1).forEach((response) => registerResponse(form, response));
     input = responses.slice(-1);
-  });
-
-  process.stdin.on('end', () => {
-    // personDetails.writeInto('./records.json', fs.writeFileSync)
-    console.log('\nThanks');
-    console.log(form + '');
   });
 };
 
-exports.readInput = readInput;
+module.exports = { readInput };
