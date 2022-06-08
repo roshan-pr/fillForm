@@ -3,7 +3,7 @@ process.stdin.setEncoding('utf8');
 
 const { Form } = require("./form.js");
 const { Field } = require("./field.js");
-const { registerResponse } = require("./userInteraction.js");
+const { registerResponse } = require("./registerResponse.js");
 
 const readInput = (form, logger, callBack) => {
   logger(form.getCurrentField().getPrompt());
