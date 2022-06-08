@@ -1,16 +1,18 @@
-**TODO**
-
-  - [ ] Rename file userInteraction.js to registerResponse.js
-  - [ ] Add validations for the fields
+## DOING
 
   - [ ] Add phone number and address fields.
   - [ ] Validate address - Should not be empty.
 
-  - [ ] Inject the dependencies from outside.
+## TODO
 
+  - [ ] Display error message, for invalid response.
+  - [ ] Write test for main in bash.
 
-**Done**
+## Done
 
+- [x] Inject the dependencies from outside.
+- [x] Add validations for the fields
+- [x] Rename file userInteraction.js to registerResponse.js
 - [x] Rename file name of Form to form.js.
 - [x] Remove Iterator entity and test.
 - [x] Extract entity called fields

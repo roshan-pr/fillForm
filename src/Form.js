@@ -12,7 +12,11 @@ class Form {
   }
 
   fillField(response) {
-    this.#fields[this.#currentField].fill(response);
+    const field = this.#fields[this.#currentField];
+    if (!field.isValid(response)) {
+      return;
+    }
+    field.fill(response);
     this.#currentField++;
   }
 
